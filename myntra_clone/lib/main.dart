@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myntra_clone/pages/home_page.dart';
+import 'package:myntra_clone/pages/login.dart';
+import 'package:myntra_clone/routes.dart';
 import 'package:myntra_clone/widgets/theme.dart';
 
 void main() {
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         "/": (context)=>homepage(),
+        MyRoutes.loginRoute: ((context) => loginpage()),
       }
 
     );
