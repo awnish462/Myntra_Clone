@@ -3,10 +3,17 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:myntra_clone/routes.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class carouselSlider extends StatelessWidget {
+class carouselSlider extends StatefulWidget {
   carouselSlider({Key? key}) : super(key: key);
 
+  @override
+  State<carouselSlider> createState() => _carouselSliderState();
+}
+
+class _carouselSliderState extends State<carouselSlider> {
+  int activeindex = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,6 +29,10 @@ class carouselSlider extends StatelessWidget {
               enableInfiniteScroll: true,
               reverse: false,
               autoPlay: true,
+              onPageChanged: (index, reason) {
+                  
+                  setState(() => activeindex = index);
+                },
               autoPlayInterval: Duration(seconds: 3),
               autoPlayAnimationDuration: Duration(milliseconds: 800),
               autoPlayCurve: Curves.fastOutSlowIn,
@@ -46,7 +57,7 @@ class carouselSlider extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, MyRoutes.loginRoute);
+                        Navigator.pushNamed(context, MyRoutes.carouseldetailRoute);
                       },
                     ),
                   );
@@ -55,61 +66,28 @@ class carouselSlider extends StatelessWidget {
             }).toList(),
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: buildIndicator(),
+        ),
 
         //dots
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
-              height: 8,
-              width: 8,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-            ),
-            SizedBox(
-              width: 3,
-            ),
-            Container(
-              height: 8,
-              width: 8,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-            ),
-            SizedBox(
-              width: 3,
-            ),
-            Container(
-              height: 8,
-              width: 8,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-            ),
-            SizedBox(
-              width: 3,
-            ),
-            Container(
-              height: 8,
-              width: 8,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-            ),
-            SizedBox(
-              width: 3,
-            ),
-            Container(
-              height: 8,
-              width: 8,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-            ),
-            SizedBox(
-              width: 3,
-            ),
-          ]),
-        ),
       ],
     );
+   
   }
+   buildIndicator() => AnimatedSmoothIndicator(
+          activeIndex: activeindex,
+          count: data.length,
+          effect: SlideEffect(
+              radius: 10.0,
+              dotWidth: 10.0,
+              dotHeight: 10.0,
+              // paintStyle:  PaintingStyle.stroke,
+              // strokeWidth:  1.5,
+              dotColor: Colors.grey,
+              activeDotColor: Colors.indigo),
+        );
 
 //carsoul images
   final List data = [
@@ -119,19 +97,19 @@ class carouselSlider extends StatelessWidget {
     },
     {
       "url":
-          "https://mir-s3-cdn-cf.behance.net/project_modules/fs/f3299f42054547.57bea3c185f64.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/fs/84e85642054547.57bea3c1858d3.png",
     },
     {
       "url":
-          "https://mir-s3-cdn-cf.behance.net/project_modules/fs/f3299f42054547.57bea3c185f64.png",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDUy2IrF2SkpbX9Hc0jsXN21SZ4CI_s4yfUQ&usqp=CAU",
     },
     {
       "url":
-          "https://mir-s3-cdn-cf.behance.net/project_modules/fs/f3299f42054547.57bea3c185f64.png",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSD7lfeF3cPeIIQjpagqBsgdS8f-eATwwC-Q&usqp=CAU",
     },
     {
       "url":
-          "https://mir-s3-cdn-cf.behance.net/project_modules/fs/f3299f42054547.57bea3c185f64.png",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-LVy-nB3f0V5oJZRCdDVYUEHFTz3n6MdnWg&usqp=CAU",
     }
   ];
 }

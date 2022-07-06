@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myntra_clone/scrollable_carousal/carouselbelowitemviewed.dart';
 import 'package:myntra_clone/scrollable_carousal/categories_scrollable.dart';
 import 'package:myntra_clone/scrollable_carousal/crousels_slider.dart';
 import 'package:myntra_clone/widgets/theme.dart';
@@ -84,26 +85,35 @@ class Homedetailpage extends StatelessWidget {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              itemsviewed[index]['title'],
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Vx.black,
-                                height: 1.5,
-                                fontSize: 15,
+                            Padding(
+                              padding: const EdgeInsets.only(top:8,left: 8),
+                              child: Text(
+                                itemsviewed[index]['title'],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 37, 36, 36),
+                                  height: 1.5,
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
                             SizedBox(
                               height: 5,
                             ),
-                            Text(itemsviewed[index]['type']),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: Text(itemsviewed[index]['type']),
+                            ),
                             SizedBox(
                               height: 5,
                             ),
-                            Text(
-                              "₹" + itemsviewed[index]['price'],
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: Text(
+                                "₹" + itemsviewed[index]['price'],
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ]),
                     )
                   ],
@@ -112,27 +122,24 @@ class Homedetailpage extends StatelessWidget {
             }),
           ),
         ),
+        SizedBox(height: 40,),
         Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                color: Mytheme.creamColor,
-                child: InkWell(
-                  child: Image.network(
-                    'https://timesofindia.indiatimes.com/thumb/msid-88342892,imgsize-96162,width-400,resizemode-4/88342892.jpg',
-                  ),
-                  onTap: () {},
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            "TOP PICKS".text.make(),
+            Container(
+              height: 280,
+              color: Mytheme.creamColor,
+              child: carosoulbelowitemviewed(),
+            )
           ],
-        )
+        ),
+        Padding(
+          padding: EdgeInsets.zero,
+          child: Divider(thickness: 4,),
+        ),
+        "TOP PICKS".text.semiBold.xl.make().pOnly(top: 15,bottom: 15,left: 10),
+
+
+
       ],
     );
   }

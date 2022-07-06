@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myntra_clone/pages/carouselsliderdetail.dart';
 import 'package:myntra_clone/pages/home_page.dart';
 import 'package:myntra_clone/pages/login.dart';
 import 'package:myntra_clone/routes.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (context) => homepage(),
           MyRoutes.loginRoute: ((context) => loginpage()),
+          MyRoutes.carouseldetailRoute:(context) => ProductListTile()
         });
   }
 }
