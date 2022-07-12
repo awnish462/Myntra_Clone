@@ -3,6 +3,7 @@ import 'package:myntra_clone/pages/carouselsliderdetail.dart';
 import 'package:myntra_clone/pages/home_page.dart';
 import 'package:myntra_clone/pages/login.dart';
 import 'package:myntra_clone/routes.dart';
+// import 'package:myntra_clone/scrollable_carousal/carouselbelowitemviewed.dart';
 import 'package:myntra_clone/widgets/theme.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (context) => homepage(),
           MyRoutes.loginRoute: ((context) => loginpage()),
-          MyRoutes.carouseldetailRoute:(context) => ProductListTile()
+          MyRoutes.carouseldetailRoute:(context) => carouseldetail()
         });
   }
 }
