@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myntra_clone/pages/carouselsliderdetail.dart';
 import 'package:myntra_clone/pages/home_page.dart';
 import 'package:myntra_clone/pages/login.dart';
+import 'package:myntra_clone/pages/register.dart';
 import 'package:myntra_clone/routes.dart';
 // import 'package:myntra_clone/scrollable_carousal/carouselbelowitemviewed.dart';
 import 'package:myntra_clone/widgets/theme.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           "/": (context) => homepage(),
-          MyRoutes.loginRoute: ((context) => loginpage()),
+          MyRoutes.loginRoute: ((context) => LogInPage()),
+          MyRoutes.registerRoute:((context) => Registerpage()),
           MyRoutes.carouseldetailRoute:(context) => carouseldetail()
         });
   }

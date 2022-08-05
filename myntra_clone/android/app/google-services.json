@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "713866295722",
+    "project_id": "my-myntra-clone",
+    "storage_bucket": "my-myntra-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713866295722:android:0e8ea55d132776fe0453d3",
+        "android_client_info": {
+          "package_name": "com.example.myntra_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713866295722-b05k1nvkk0c7vchrm5q36birvgs98b7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOaqhPKcN7CD5bnP7RLKbUNylxBFUpJDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713866295722-b05k1nvkk0c7vchrm5q36birvgs98b7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
